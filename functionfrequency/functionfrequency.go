@@ -27,6 +27,8 @@ func FunctionFrequency(gocode []byte) []string {
 			fnName = getIdentName(x.X) + "." + getIdentName(x.Sel)
 		case *ast.Ident:
 			fnName = getIdentName(x)
+		default:
+			return true
 		}
 
 		fnCounter[fnName] += 1
